@@ -1,0 +1,185 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root */
+:root {
+  --bg: #0c0c0c;
+  --panel: #1a1a1a;
+  --light: #2a2a2a;
+  --dark: #000000;
+  --text: #e0e0e0;
+  --text2: #FFD700;
+  --border-light: #3a3a3a;
+  --border-dark: #000000;
+  --accent: #00ffcc;
+}
+
+/*  */
+body {
+  background-color: var(--bg);
+  color: var(--text2);
+  font-family: "Tahoma", "Courier New", monospace;
+  font-size: 14px;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Barra lateral */
+.sidebar {
+  width: 220px;
+  background: var(--panel);
+  padding: 10px;
+
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-dark);
+  border-right: 2px solid var(--border-dark);
+}
+
+.sidebar li::before {
+  content: "> ";
+  color: var(--accent);
+}
+
+/* Lista da barra lateral */
+.sidebar ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+/* Itens da lista na barra lateral */
+.sidebar li {
+  padding: 6px;
+  margin-bottom: 6px;
+  cursor: pointer;
+
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-dark);
+  border-right: 2px solid var(--border-dark);
+}
+
+.sidebar li:active {
+  border-top: 2px solid var(--border-dark);
+  border-left: 2px solid var(--border-dark);
+  border-bottom: 2px solid var(--border-light);
+  border-right: 2px solid var(--border-light);
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 10px;
+}
+
+/* Header */
+.header {
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  background: var(--light);
+
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-dark);
+  border-right: 2px solid var(--border-dark);
+}
+
+.header h1 {
+  font-size: 16px;
+}
+
+/* Lista de jogos */
+.game-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Game card */
+.game-card {
+  width: 200px;
+  padding: 10px;
+  background: var(--panel);
+
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-dark);
+  border-right: 2px solid var(--border-dark);
+}
+
+.game-card h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.game-card p {
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: var(--accent);
+}
+
+/* Botão */
+.win-button {
+  padding: 4px 10px;
+  background: var(--light);
+  color: var(--text);
+  cursor: pointer;
+
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-dark);
+  border-right: 2px solid var(--border-dark);
+}
+
+.win-button:active {
+  border-top: 2px solid var(--border-dark);
+  border-left: 2px solid var(--border-dark);
+  border-bottom: 2px solid var(--border-light);
+  border-right: 2px solid var(--border-light);
+}
+
+/* BADGE (status) */
+.badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 6px;
+  font-size: 11px;
+  background: var(--light);
+
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-dark);
+  border-right: 2px solid var(--border-dark);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--panel);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--light);
+
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-dark);
+  border-right: 2px solid var(--border-dark);
+}
