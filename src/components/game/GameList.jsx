@@ -1,10 +1,15 @@
 import GameCard from "./GameCard";
 import games from "../../data/games";
 
-function GameList() {
+function GameList({ filter }) {
+  const filteredGames =
+    filter === "todos"
+      ? games
+      : games.filter((game) => game.status === filter);
+
   return (
     <div className="game-list">
-      {games.map((game) => (
+      {filteredGames.map((game) => (
         <GameCard key={game.id} game={game} />
       ))}
     </div>

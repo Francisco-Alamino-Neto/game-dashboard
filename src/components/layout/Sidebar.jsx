@@ -1,11 +1,11 @@
-function Sidebar() {
+function Sidebar({ setFilter }) {
   return (
     <aside className="sidebar">
       <ul>
-        <li>Dashboard</li>
-        <li>Jogando</li>
-        <li>Finalizados</li>
-        <li>Wishlist</li>
+        <li onClick={() => setFilter("todos")}>Todos</li>
+        <li onClick={() => setFilter("jogando")}>Jogando</li>
+        <li onClick={() => setFilter("finalizado")}>Finalizados</li>
+        <li onClick={() => setFilter("quero-jogar")}>Quero jogar</li>
       </ul>
     </aside>
   );
