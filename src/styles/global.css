@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 /* Reset */
 * {
   margin: 0;
@@ -30,10 +32,24 @@ body {
     transparent 1px,
     transparent 3px
   );
+
+  background-size: 100% 16px;
+
+  animation: scanlineMove 1s linear infinite;
+
   background-color: var(--bg);
   color: var(--text2);
   font-family: "Tahoma", "Courier New", monospace;
   font-size: 14px;
+}
+
+@keyframes scanlineMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 6px;
+  }
 }
 
 /* Links */
@@ -46,10 +62,18 @@ a {
 .container {
   display: flex;
   min-height: 100vh;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  flex: 1;
 }
 
 /* Barra lateral */
 .sidebar {
+  margin-top: 10px;
+  margin-left: 10px;
   width: 220px;
   background: var(--panel);
   padding: 10px;
@@ -58,6 +82,59 @@ a {
   border-left: 2px solid var(--border-light);
   border-bottom: 2px solid var(--border-dark);
   border-right: 2px solid var(--border-dark);
+}
+
+.sidebar-marquee {
+  margin-top: 10px;
+  width: 100%;
+  overflow: hidden;
+
+  border-top: 2px solid var(--border-dark);
+  padding-top: 6px;
+}
+
+.sidebar-track {
+  display: flex;
+  gap: 10px;
+
+  width: max-content;
+
+  animation: scrollSidebar 10s linear infinite;
+}
+
+.sidebar-track a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  
+  padding: 2px 6px;
+
+  color: #00ffcc;
+  text-decoration: none;
+  font-size: 12px;
+
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-dark);
+  border-right: 2px solid var(--border-dark);
+
+  white-space: nowrap;
+}
+
+@keyframes scrollSidebar {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.sidebar-track img {
+  width: 14px;
+  height: 14px;
+
+  image-rendering: pixelated;
 }
 
 .sidebar li::before {
@@ -90,6 +167,38 @@ a {
   border-right: 2px solid var(--border-light);
 }
 
+.sidebar-gif {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.sidebar-gif img {
+  width: 100%;
+  
+
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-dark);
+  border-right: 2px solid var(--border-dark);
+}
+
+.sidebar-gif::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.05) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  pointer-events: none;
+}
+
 /* Content */
 .content {
   flex: 1;
@@ -109,6 +218,10 @@ a {
 }
 
 .header h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Press Start 2P", monospace; 
   font-size: 16px;
 }
 
@@ -121,6 +234,7 @@ a {
 
 /* Game card */
 .game-card {
+  position: relative;
   width: 200px;
   padding: 10px;
   background: var(--panel);
@@ -150,26 +264,27 @@ a {
   color: var(--wishlist);
 }
 
-.flag {
-  width: 5vh;
-  height: 5vh;
-  position: relative;
-  float: right;
-  top: -26px;
-  right: -20px;
-  margin-bottom: 6px;
+.flag-container {
+  position: absolute;
+  top: -10px;
+  right: -10px;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flag {
+  width: auto;
+  height: 26px;
 }
 
 .country-label {
-  position: relative;
-  float: right;
-  right: -45px;
+  margin-top: -2px;
   writing-mode: vertical-rl;
   text-orientation: upright;
 
   font-size: 10px;
-  margin-top: 4px;
 
   color: #00ffcc;
 

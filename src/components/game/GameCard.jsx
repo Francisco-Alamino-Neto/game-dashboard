@@ -4,17 +4,17 @@ function GameCard({ game }) {
   const country = countryMap[game.country];
   return (
     <div className="game-card win-box">
-
-      <img
+      <div className="flag-container">
+        <img
         src={`/flags/${game.country}.png`}
         alt={game.country}
         className="flag"
-      />
-
-      <div className="country-label">
-        {country?.native || game.country}
+        />
+        <div className="country-label">
+          {country?.native || game.country}
+        </div>
       </div>
-
+      
       <h3>{game.title}</h3>
 
       <img

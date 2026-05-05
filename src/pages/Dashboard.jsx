@@ -10,19 +10,18 @@ function Dashboard() {
 
   return (
     <div className="container">
-      <Sidebar setFilter={setFilter} />
+      <div className="main">
+        <Sidebar setFilter={setFilter} />
 
-      <div className="content">
-        <Header />
+        <div className="content">
+          <Header />
 
-        <button
-          className="win-button"
-          onClick={() => setOpen(true)}
-        >
-          + Adicionar Jogo
-        </button>
+          <button className="win-button" onClick={() => setOpen(true)}>
+            + Adicionar Jogo
+          </button>
 
-        <GameList filter={filter} />
+          <GameList filter={filter} />
+        </div>
       </div>
 
       <Modal
